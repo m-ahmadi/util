@@ -1,24 +1,41 @@
 Some utility functions that I always use:
 -----------------------------------------
+`isObj( v )`_____________________________________**Is something an Object?**
 
-`isObject( v )`__________________________________________ **Is something an Object?**
+`isArr( v )`_____________________________________**Is something an Array?**
 
-`isArray( v )`___________________________________________ **Is something an Array?**
+`isFunc( v )`____________________________________**Is something a Function?**
 
-`getArgs()`______________________________________________  **For using inside a function.**
+`isStr( v )`_____________________________________**Is something a String?**
 
-`moveArrayItem(arr, from, to)`________________________ **Move array item from to.**
+`isNum( v )`_____________________________________**Is something a Number?**
 
-`isInt( number )`_______________________________________ **Is number whole?**
+`isEmptyObj( v )`_______________________________**Is Object empty?**
 
-`makeNumberNegative( v )`______________________________ **Make a number negative.**
+`isEmptyStr( v )`_______________________________**Is String empty?**
 
-`isEmptyObject( v )`____________________________________ **Is Object empty?**
+`objLength( o )`________________________________**Length of an Object.**
 
-`isEmptyString( v )`____________________________________ **Is String empty?**
+`getArgs()`______________________________________**For using inside a function.**
 
-`objectLength( v )`_____________________________________ **Length of an Object.**
+`moveArrItem(arr, from, to)`___________________**Move array item from to.**
 
-`extend( obj, obj [, obj, ...] )`_____________________ **Make the right object inherit from the left object.**
+`isInt( number )`_______________________________**Is a number an integer one?**
 
-`getCommentsInside()`___________________________________ **Get comments inside an HTML element. (Needs jQuery)**
+`negateNum( n )`________________________________**Make a positive number negative.**
+
+`positNum( n )`_________________________________**Make a negative number positive.**
+
+`reverseNumSign( n )`___________________________**Reverse a number's sign.**
+
+`isNumOdd( n )`__________________________________**Is a number odd?**
+
+`randInt( min, max )`___________________________**Generate a random integer, between min and max arguments.**
+
+`randFloat( min, max )`_________________________**Generate a random floating-point, between min and max arguments**
+
+`toDecimalPlace( n )`___________________________**Filter a floating-point decimal places to a specifiv amount.**
+
+`extend( obj, obj [, obj, ...] )`_____________**Make the right-most object argument inherit from the previous left object arguments.**
+
+`getCommentsInside( DomElement )`______________**Get comments inside an HTML element. (Needs jQuery)**

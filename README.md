@@ -1,14 +1,18 @@
 Some utility functions that I always use:
 -----------------------------------------
-`isObj( v )`_____________________________________**Is something an Object?**
+`isObj( v )`_____________________________________**Is value an Object?**
 
-`isArr( v )`_____________________________________**Is something an Array?**
+`isArr( v )`_____________________________________**Is value an Array?**
 
-`isFunc( v )`____________________________________**Is something a Function?**
+`isFunc( v )`____________________________________**Is value a Function?**
 
-`isStr( v )`_____________________________________**Is something a String?**
+`isStr( v )`_____________________________________**Is value a String?**
 
-`isNum( v )`_____________________________________**Is something a Number?**
+`isNum( v )`_____________________________________**Is value a Number?**
+
+`isBool( v )`____________________________________**Is value a Boolean?**
+
+`isUndef( v )`___________________________________**Is value undefined?**
 
 `isEmptyObj( v )`_______________________________**Is Object empty?**
 

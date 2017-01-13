@@ -41,5 +41,3 @@ Some utility functions that I always use:
 `toDecimalPlace( n )`___________________________**Filter a floating-point decimal places to a specifiv amount.**
 
 `extend( obj, obj [, obj, ...] )`_____________**Make the right-most object argument inherit from the previous left object arguments.**
-
-`getCommentsInside( DomElement )`______________**Get comments inside an HTML element. (Needs jQuery)**

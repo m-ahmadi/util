@@ -4,7 +4,7 @@ Some utility functions that I always use:
 
 `isArr( v )`_____________________________________**Is value an Array?**
 
-`isFunc( v )`____________________________________**Is value a Function?**
+`isFn( v )`______________________________________**Is value a Function?**
 
 `isStr( v )`_____________________________________**Is value a String?**
 

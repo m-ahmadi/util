@@ -124,7 +124,7 @@ var util = (function () {
         }
     }
     function extend() {
-        var args = Array.prototype.slice.call(arguments),
+        var args = getArgs(arguments),
             len = args.length,
             arr = [],
             objects = [],

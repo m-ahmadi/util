@@ -54,12 +54,12 @@ util.extend() example:
     	return inst;
     }
     
-    function newEmpoloye(name, age, jobTitle, id) {
+    function newEmployee(name, age, jobTitle, id) {
     	var inst = {}, // the instance (this)
     		person = newPerson(name, age),
     		idCounter = 0;
     	
-    	util.extend( person, inst );
+    	inst = util.extend( person, inst );
     	
     	inst.jobTitle  = jobTitle || 'uknown_title';
     	inst.employeId = id       || 'employe_'+(idCounter+=1);
@@ -67,7 +67,7 @@ util.extend() example:
     	return inst;
     }
     
-    var employee = newEmpoloyee('ali', 26, 'product_manager')
+    var employee = newEmployee('ali', 26, 'product_manager');
     
     employee.name      // 'ali'
     employee.age       // 26

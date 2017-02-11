@@ -77,6 +77,6 @@ util.extend() example:
     // You can think of it this way:
     class Employee extends Person {
     	constructor(name, age, jobTitle, id) {
-    		// new Person(name, age);
+    		// super(name, age);
     	}
     }

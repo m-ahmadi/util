@@ -20,7 +20,7 @@ Some utility functions that I always use:
 
 `objLength( o )`________________________________**Length of an Object.**
 
-`getArgs()`______________________________________**For using inside a function.**
+`getArgs( arguments )`_________________________**For using inside a function.**
 
 `moveArrItem(arr, from, to)`___________________**Move array item from to.**
 
@@ -40,4 +40,43 @@ Some utility functions that I always use:
 
 `toDecimalPlace( n )`___________________________**Filter a floating-point decimal places to a specifiv amount.**
 
-`extend( obj, obj [, obj, ...] )`_____________**Make the right-most object argument inherit from the previous left object arguments.**
+`extend( obj1, obj2 [, obj3, ...] )`__________**Make the right-most object argument inherit from the previous left object arguments. (obj2 inherits from obj1, obj3 inherits from obj2.)**
+
+util.extend() example:
+----------------------
+
+    function newPerson(name, age) {
+    	var inst = {}; // the instance (this)
+    	
+    	inst.name = name || 'no_name';
+    	inst.age  = age  || false;
+    	
+    	return inst;
+    }
+    
+    function newEmpoloye(name, age, jobTitle, id) {
+    	var inst = {}, // the instance (this)
+    		person = newPerson(name, age),
+    		idCounter = 0;
+    	
+    	util.extend( person, inst );
+    	
+    	inst.jobTitle  = jobTitle || 'uknown_title';
+    	inst.employeId = id       || 'employe_'+(idCounter+=1);
+    	
+    	return inst;
+    }
+    
+    var employee = newEmpoloyee('ali', 26, 'product_manager')
+    
+    employee.name      // 'ali'
+    employee.age       // 26
+    employee.jobTitle  // 'product_manager'
+    employee .id       // 'employe_1'
+    	
+    // You can think of it this way:
+    class Employee extends Person {
+    	constructor(name, age, jobTitle, id) {
+    		// new Person(name, age);
+    	}
+    }

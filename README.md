@@ -45,39 +45,39 @@ Some utility functions that I always use:
 util.extend() example:
 ----------------------
 ```javascript
-    function newPerson(name, age) {
-    	var inst = {}; // the instance (this)
-    	
-    	inst.name = name || 'no_name';
-    	inst.age  = age  || false;
-    	
-    	return inst;
+function newPerson(name, age) {
+    var inst = {}; // the instance (this)
+
+    inst.name = name || 'no_name';
+    inst.age  = age  || false;
+
+    return inst;
+}
+
+function newEmployee(name, age, jobTitle, id) {
+    var inst = {}, // the instance (this)
+        person = newPerson(name, age),
+        idCounter = 0;
+
+    inst = util.extend( person, inst );
+
+    inst.jobTitle  = jobTitle || 'uknown_title';
+    inst.employeId = id       || 'employe_'+(idCounter+=1);
+
+    return inst;
+}
+
+var employee = newEmployee('ali', 26, 'product_manager');
+
+employee.name      // 'ali'
+employee.age       // 26
+employee.jobTitle  // 'product_manager'
+employee .id       // 'employe_1'
+
+// You can think of it this way:
+class Employee extends Person {
+    constructor(name, age, jobTitle, id) {
+        // super(name, age);
     }
-    
-    function newEmployee(name, age, jobTitle, id) {
-    	var inst = {}, // the instance (this)
-    		person = newPerson(name, age),
-    		idCounter = 0;
-    	
-    	inst = util.extend( person, inst );
-    	
-    	inst.jobTitle  = jobTitle || 'uknown_title';
-    	inst.employeId = id       || 'employe_'+(idCounter+=1);
-    	
-    	return inst;
-    }
-    
-    var employee = newEmployee('ali', 26, 'product_manager');
-    
-    employee.name      // 'ali'
-    employee.age       // 26
-    employee.jobTitle  // 'product_manager'
-    employee .id       // 'employe_1'
-    	
-    // You can think of it this way:
-    class Employee extends Person {
-    	constructor(name, age, jobTitle, id) {
-    		// super(name, age);
-    	}
-    }
+}
 ```

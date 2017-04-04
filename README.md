@@ -44,7 +44,7 @@ Some utility functions that I always use:
 
 util.extend() example:
 ----------------------
-
+```javascript
     function newPerson(name, age) {
     	var inst = {}; // the instance (this)
     	
@@ -80,3 +80,4 @@ util.extend() example:
     		// super(name, age);
     	}
     }
+```

@@ -38,7 +38,7 @@ Some utility functions that I always use:
 
 `randFloat( min, max )`_________________________**Generate a random floating-point, between min and max arguments**
 
-`toDecimalPlace( n )`___________________________**Filter a floating-point decimal places to a specifiv amount.**
+`toDecimalPlace( n )`___________________________**Filter a floating-point decimal places to a specific amount.**
 
 `extend( obj1, obj2 [, obj3, ...] )`__________**Make the right-most object argument inherit from the previous left object arguments. (obj2 inherits from obj1, obj3 inherits from obj2.)**
 

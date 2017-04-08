@@ -17,8 +17,18 @@ if (typeof Object.keys !== 'function') {
         return keys;
     };
 }
-var util = (function () {
-    function isObj(v) {
+
+(function (exported) {
+	if (typeof define === "function" && define.amd) {
+		define(exported);
+	} else if (typeof process !== "undefined" &&
+			   typeof process.versions.node !== "undefined") {
+		module.exports = exported; 
+	} else {
+		window.util = exported;
+	}
+}((function () {
+	function isObj(v) {
         return (
             v &&
             typeof v === 'object' &&
@@ -194,4 +204,4 @@ var util = (function () {
         objLength: objLength,
         extend: extend
     };
-}());
+}())));

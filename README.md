@@ -1,6 +1,6 @@
 Some utility functions that I always use:
 -----------------------------------------
-```javascript isObj( v )`_____________________________________**Is value an Object?**
+`isObj( v )`_____________________________________**Is value an Object?**
 
 `isArr( v )`_____________________________________**Is value an Array?**
 
@@ -20,9 +20,9 @@ Some utility functions that I always use:
 
 `objLength( o )`________________________________**Length of an Object.**
 
-`getArgs( arguments )`_________________________**Call it inside a function and pass it the arguments. (It returns a normal array from arguments)**
+`getArgs( arguments )`_________________________**Call it inside a function and pass it the arguments and it returns a normal array from arguments.**
 
-`moveArrItem(arr, from, to)`___________________**Move array item from to.**
+`moveArrItem( arr, from, to )`___________________**Move array item from to.**
 
 `isInt( number )`_______________________________**Is a number an integer one?**
 
@@ -36,9 +36,17 @@ Some utility functions that I always use:
 
 `randInt( min, max )`___________________________**Generate a random integer, between min and max arguments.**
 
-`randFloat( min, max )`_________________________**Generate a random floating-point, between min and max arguments**
+`randFloat( min, max )`_________________________**Generate a random floating-point, between min and max arguments.**
 
 `toDecimalPlace( n )`___________________________**Filter a floating-point decimal places to a specific amount.**
+
+`substrBeforeLast( char, str )`_______________**Get the substring before the last occurrence of `char` in `str`.**
+
+`substrAfterLast( char, str )`________________**Get the substring after the last occurrence of `char` in `str`.**
+
+`substrBeforeFirst( char, str )`______________**Get the substring before the first occurrence of `char` in `str`.**
+
+`substrAfterFirst( char, str )`_______________**Get the substring after the last occurrence of `char` in `str`.**
 
 `extend( obj1, obj2 [, obj3, ...] )`__________**Make the right-most object argument inherit from the previous left object arguments. (obj2 inherits from obj1, obj3 inherits from obj2.)**
 

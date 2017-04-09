@@ -82,14 +82,14 @@ if (typeof Object.keys !== "function") {
     function isNumOdd(n) {
         return isNum(n)  &&  (n % 2) ? true : false;
     }
-    function randInt(min, max) { // default between 0 and 1
+    function randInt(min, max) { // default between 0 and 10
         min = min ? Math.ceil(min) : 0;
-        max = max ? Math.floor(max) : 2;
+        max = max ? Math.floor(max) : 10;
         return Math.floor(Math.random() * (max - min)) + min;
     }
-    function randFloat(min, max) {
+    function randFloat(min, max) { // default between 0 and 10
         min = min ? min : 0;
-        max = max ? max : 1;
+        max = max ? max : 10;
         return Math.random() * (max - min) + min;
     }
     function toDecimalPlace(n, p) {

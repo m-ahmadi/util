@@ -34,9 +34,9 @@ Some utility functions that I always use:
 
 `isNumOdd( n )`_________________________________**Is a number odd?**
 
-`randInt( min, max )`__________________________**Generate a random integer, between min and max arguments.**
+`randInt( min, max )`__________________________**Generate a random integer, between min and max arguments. (default between 0 and 10)**
 
-`randFloat( min, max )`________________________**Generate a random floating-point, between min and max arguments.**
+`randFloat( min, max )`________________________**Generate a random floating-point, between min and max arguments. (default between 0 and 10)**
 
 `toDecimalPlace( n )`__________________________**Filter a floating-point decimal places to a specific amount.**
 

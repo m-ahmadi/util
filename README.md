@@ -14,15 +14,15 @@ Some utility functions that I always use:
 
 `isUndef( v )`___________________________________**Is value undefined?**
 
-`isEmptyObj( v )`_______________________________**Is value an empty Object?**
+`isEmptyObj( v )`________________________________**Is value an empty Object?**
 
-`isEmptyStr( v )`_______________________________**Is value an empty String?**
+`isEmptyStr( v )`________________________________**Is value an empty String?**
 
-`objLength( o )`________________________________**Length of an Object.**
+`objLength( o )`_________________________________**Length of an Object.**
 
-`getArgs( arguments )`_________________________**Call it inside a function and pass it the `arguments` and it returns a normal array from `arguments`.**
+`getArgs( arguments )`__________________________**Call it inside a function and pass it the `arguments` and it returns a normal array from `arguments`.**
 
-`moveArrItem( arr, from, to )`_________________**Move array item from to.**
+`moveArrItem( arr, from, to )`________________**Move array item from to.**
 
 `isInt( number )`_______________________________**Is a number an integer one?**
 

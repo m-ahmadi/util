@@ -12,7 +12,7 @@ Some utility functions that I always use:
 
 `isBool( v )`____________________________________**Is value a Boolean?**
 
-`isUndef( v )`___________________________________**Is value undefined?**
+`isUndef( v )`___________________________________**Is value `undefined`?**
 
 `isEmptyObj( v )`_______________________________**Is value an empty Object?**
 
@@ -48,7 +48,7 @@ Some utility functions that I always use:
 
 `substrAfterFirst( char, str )`_______________**Get the substring after the last occurrence of `char` in `str`.**
 
-`extend( obj1, obj2 [, obj3, ...] )`_________**Make the right-most object argument inherit from the previous left object arguments. (obj2 inherits from obj1, obj3 inherits from obj2.)**
+`extend( obj1, obj2 [, obj3, ...] )`_________**Make the right-most object argument inherit from the previous left object arguments. (`obj2` inherits from `obj1`, `obj3` inherits from `obj2`.)**
 
 util.extend() example:
 ----------------------

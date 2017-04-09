@@ -1,11 +1,11 @@
-if (typeof Object.create !== 'function') {
+if (typeof Object.create !== "function") {
     Object.create = function (o) {
         function F() {}
         F.prototype = o;
         return new F();
     };
 }
-if (typeof Object.keys !== 'function') {
+if (typeof Object.keys !== "function") {
     Object.keys = function (o) {
         var keys = [],
             k;
@@ -19,34 +19,34 @@ if (typeof Object.keys !== 'function') {
 }
 
 (function (exported) {
-	if (typeof define === "function" && define.amd) {
-		define(exported);
-	} else if (typeof process !== "undefined" &&
-			   typeof process.versions.node !== "undefined") {
-		module.exports = exported; 
-	} else {
-		window.util = exported;
-	}
+    if (typeof define === "function" && define.amd) {
+        define(exported);
+    } else if (typeof process !== "undefined" &&
+               typeof process.versions.node !== "undefined") {
+        module.exports = exported;
+    } else {
+        window.util = exported;
+    }
 }((function () {
-	function isObj(v) {
+    function isObj(v) {
         return (
             v &&
-            typeof v === 'object' &&
+            typeof v === "object" &&
             typeof v !== null &&
-            Object.prototype.toString.call(v) === '[object Object]'
+            Object.prototype.toString.call(v) === "[object Object]"
         ) ? true : false;
     }
     function isArr(v) {
-        if ( typeof Array.isArray === 'function' ) {
+        if ( typeof Array.isArray === "function" ) {
             return Array.isArray(v);
         } else {
             return (
                 v &&
-                typeof v === 'object' &&
-                typeof v.length === 'number' &&
-                typeof v.splice === 'function' &&
-                !v.propertyIsEnumerable('length') &&
-                Object.prototype.toString.call(v) === '[object Array]'
+                typeof v === "object" &&
+                typeof v.length === "number" &&
+                typeof v.splice === "function" &&
+                !v.propertyIsEnumerable("length") &&
+                Object.prototype.toString.call(v) === "[object Array]"
             ) ? true : false;
         }
     }
@@ -98,7 +98,7 @@ if (typeof Object.keys !== 'function') {
     function isEmptyObj(o) {
         var k;
         if ( isObj(o) ) {
-            if ( typeof Object.getOwnPropertyNames === 'function' ) {
+            if ( typeof Object.getOwnPropertyNames === "function" ) {
                 return Object.getOwnPropertyNames(o).length === 0; // ES5
             } else {
                 for ( k in o ) {
@@ -109,24 +109,25 @@ if (typeof Object.keys !== 'function') {
                 return true;
             }
         }
+        return false;
     }
     function isFn(v) {
-        return typeof v === 'function';
+        return typeof v === "function";
     }
     function isStr(v) {
-        return typeof v === 'string';
+        return typeof v === "string";
     }
     function isNum(v) {
-        return typeof v === 'number';
+        return typeof v === "number";
     }
     function isBool(v) {
-        return typeof v === 'boolean';
+        return typeof v === "boolean";
     }
     function isUndef(v) {
-        return typeof v === 'undefined';
+        return typeof v === "undefined";
     }
     function isEmptyStr(v) {
-        return typeof v === 'string'  &&  v.length === 0;
+        return typeof v === "string"  &&  v.length === 0;
     }
     function objLength(o) {
         if ( isObj(o) ) {
@@ -134,18 +135,18 @@ if (typeof Object.keys !== 'function') {
         }
     }
     function substrBeforeLast(c, s) {
-		return isStr(c) && isStr(s) ? s.substr( 0, s.lastIndexOf(c) ) : false;
-	}
-	function substrAfterLast(c, s) {
-		return isStr(c) && isStr(s) ? s.substring(s.lastIndexOf(c) + 1) : false;
-	}
-	function substrBeforeFirst(c, s) {
-		return isStr(c) && isStr(s) ? s.substr( 0, s.indexOf(c) ) : false;
-	}
-	function substrAfterFirst(c, s) {
-		return isStr(c) && isStr(s) ? s.substring(s.indexOf(c) + 1) : false;
-	}
-	function extend() {
+        return isStr(c) && isStr(s) ? s.substr( 0, s.lastIndexOf(c) ) : false;
+    }
+    function substrAfterLast(c, s) {
+        return isStr(c) && isStr(s) ? s.substring(s.lastIndexOf(c) + 1) : false;
+    }
+    function substrBeforeFirst(c, s) {
+        return isStr(c) && isStr(s) ? s.substr( 0, s.indexOf(c) ) : false;
+    }
+    function substrAfterFirst(c, s) {
+        return isStr(c) && isStr(s) ? s.substring(s.indexOf(c) + 1) : false;
+    }
+    function extend() {
         var args = getArgs(arguments),
             len = args.length,
             arr = [],
@@ -214,10 +215,10 @@ if (typeof Object.keys !== 'function') {
         isUndef: isUndef,
         isEmptyStr: isEmptyStr,
         objLength: objLength,
-		substrBeforeLast: substrBeforeLast,
-		substrAfterLast: substrAfterLast,
-		substrBeforeFirst: substrBeforeFirst,
-		substrAfterFirst: substrAfterFirst,
+        substrBeforeLast: substrBeforeLast,
+        substrAfterLast: substrAfterLast,
+        substrBeforeFirst: substrBeforeFirst,
+        substrAfterFirst: substrAfterFirst,
         extend: extend
     };
 }())));

@@ -133,7 +133,19 @@ if (typeof Object.keys !== 'function') {
             return Object.keys(o).length;
         }
     }
-    function extend() {
+    function substrBeforeLast(c, s) {
+		return isStr(c) && isStr(s) ? s.substr( 0, s.lastIndexOf(c) ) : false;
+	}
+	function substrAfterLast(c, s) {
+		return isStr(c) && isStr(s) ? s.substring(s.lastIndexOf(c) + 1) : false;
+	}
+	function substrBeforeFirst(c, s) {
+		return isStr(c) && isStr(s) ? s.substr( 0, s.indexOf(c) ) : false;
+	}
+	function substrAfterFirst(c, s) {
+		return isStr(c) && isStr(s) ? s.substring(s.indexOf(c) + 1) : false;
+	}
+	function extend() {
         var args = getArgs(arguments),
             len = args.length,
             arr = [],
@@ -202,6 +214,10 @@ if (typeof Object.keys !== 'function') {
         isUndef: isUndef,
         isEmptyStr: isEmptyStr,
         objLength: objLength,
+		substrBeforeLast: substrBeforeLast,
+		substrAfterLast: substrAfterLast,
+		substrBeforeFirst: substrBeforeFirst,
+		substrAfterFirst: substrAfterFirst,
         extend: extend
     };
 }())));

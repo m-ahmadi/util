@@ -1,6 +1,6 @@
 Some utility functions that I always use:
 -----------------------------------------
-`isObj( v )`_____________________________________**Is value an Object?**
+```javascript isObj( v )`_____________________________________**Is value an Object?**
 
 `isArr( v )`_____________________________________**Is value an Array?**
 
@@ -14,13 +14,13 @@ Some utility functions that I always use:
 
 `isUndef( v )`___________________________________**Is value undefined?**
 
-`isEmptyObj( v )`_______________________________**Is Object empty?**
+`isEmptyObj( v )`_______________________________**Is value an empty Object?**
 
-`isEmptyStr( v )`_______________________________**Is String empty?**
+`isEmptyStr( v )`_______________________________**Is value an empty String?**
 
 `objLength( o )`________________________________**Length of an Object.**
 
-`getArgs( arguments )`_________________________**For using inside a function.**
+`getArgs( arguments )`_________________________**Call it inside a function and pass it the arguments. (It returns a normal array from arguments)**
 
 `moveArrItem(arr, from, to)`___________________**Move array item from to.**
 

@@ -14,13 +14,13 @@ Some utility functions that I always use:
 
 `isUndef( v )`___________________________________**Is value undefined?**
 
-`isEmptyObj( v )`________________________________**Is value an empty Object?**
+`isEmptyObj( v )`_______________________________**Is value an empty Object?**
 
-`isEmptyStr( v )`________________________________**Is value an empty String?**
+`isEmptyStr( v )`_______________________________**Is value an empty String?**
 
-`objLength( o )`_________________________________**Length of an Object.**
+`objLength( o )`________________________________**Length of an Object.**
 
-`getArgs( arguments )`__________________________**Call it inside a function and pass it the `arguments` and it returns a normal array from `arguments`.**
+`getArgs( arguments )`_________________________**Call it inside a function and pass it the `arguments` and it returns a normal array from `arguments`.**
 
 `moveArrItem( arr, from, to )`________________**Move array item from to.**
 
@@ -30,25 +30,25 @@ Some utility functions that I always use:
 
 `positNum( n )`_________________________________**Make a negative number positive.**
 
-`reverseNumSign( n )`___________________________**Reverse a number's sign.**
+`reverseNumSign( n )`__________________________**Reverse a number's sign.**
 
-`isNumOdd( n )`__________________________________**Is a number odd?**
+`isNumOdd( n )`_________________________________**Is a number odd?**
 
-`randInt( min, max )`___________________________**Generate a random integer, between min and max arguments.**
+`randInt( min, max )`__________________________**Generate a random integer, between min and max arguments.**
 
-`randFloat( min, max )`_________________________**Generate a random floating-point, between min and max arguments.**
+`randFloat( min, max )`________________________**Generate a random floating-point, between min and max arguments.**
 
-`toDecimalPlace( n )`___________________________**Filter a floating-point decimal places to a specific amount.**
+`toDecimalPlace( n )`__________________________**Filter a floating-point decimal places to a specific amount.**
 
-`substrBeforeLast( char, str )`________________**Get the substring before the last occurrence of `char` in `str`.**
+`substrBeforeLast( char, str )`_______________**Get the substring before the last occurrence of `char` in `str`.**
 
-`substrAfterLast( char, str )`_________________**Get the substring after the last occurrence of `char` in `str`.**
+`substrAfterLast( char, str )`________________**Get the substring after the last occurrence of `char` in `str`.**
 
-`substrBeforeFirst( char, str )`_______________**Get the substring before the first occurrence of `char` in `str`.**
+`substrBeforeFirst( char, str )`______________**Get the substring before the first occurrence of `char` in `str`.**
 
-`substrAfterFirst( char, str )`________________**Get the substring after the last occurrence of `char` in `str`.**
+`substrAfterFirst( char, str )`_______________**Get the substring after the last occurrence of `char` in `str`.**
 
-`extend( obj1, obj2 [, obj3, ...] )`__________**Make the right-most object argument inherit from the previous left object arguments. (obj2 inherits from obj1, obj3 inherits from obj2.)**
+`extend( obj1, obj2 [, obj3, ...] )`_________**Make the right-most object argument inherit from the previous left object arguments. (obj2 inherits from obj1, obj3 inherits from obj2.)**
 
 util.extend() example:
 ----------------------

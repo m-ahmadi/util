@@ -1,7 +1,7 @@
 Some utility functions that I always use:
 -----------------------------------------
 
-Function | Description
+Method | Description
 -----------------------------------------|---------------------------------------------------------------------------------------------
 `isObj( v )`                             | **Is value an Object?**
 `isArr( v )`                             | **Is value an Array?**

@@ -118,15 +118,33 @@ if (typeof Object.keys !== "function") {
         return typeof v === "string";
     }
     function isNum(v) {
-        return typeof v === "number";
+        return typeof v === "number" && !isNAN(v);
     }
+	function isNAN(v) {
+		if (typeof Number.isNaN === "function") {
+			return Number.isNaN(v);
+		} else if (typeof isNaN === "function") {
+			return (
+				!isObj(v) &&
+				!isStr(v) &&
+				!isUndef(v) &&
+				!isArr(v) &&
+				isNaN(v)
+			);
+		} else {
+			return v !== NaN ? false : true;
+		}
+	}
     function isBool(v) {
         return typeof v === "boolean";
     }
     function isUndef(v) {
         return typeof v === "undefined";
     }
-    function isEmptyStr(v) {
+    function isNull(v) {
+		return typeof v === "object" && v === null;
+	}
+	function isEmptyStr(v) {
         return typeof v === "string"  &&  v.length === 0;
     }
     function objLength(o) {
@@ -211,8 +229,10 @@ if (typeof Object.keys !== "function") {
         isFn: isFn,
         isStr: isStr,
         isNum: isNum,
+		isNAN: isNAN,
         isBool: isBool,
         isUndef: isUndef,
+		isNull: isNull,
         isEmptyStr: isEmptyStr,
         objLength: objLength,
         substrBeforeLast: substrBeforeLast,

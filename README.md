@@ -8,8 +8,10 @@ Function | Description
 `isFn( v )`                              | **Is value a Function?**
 `isStr( v )`                             |  **Is value a String?**
 `isNum( v )`                             | **Is value a Number?**
-`isBool( v )`                            |  **Is value a Boolean?**
+`isNAN( v )`                             | **Is value `NaN`?**
+`isBool( v )`                            | **Is value a Boolean?**
 `isUndef( v )`                           | **Is value `undefined`?**
+`isNull( v )`                            | **Is value `null`?**
 `isEmptyObj( v )`                        | **Is value an empty Object?**
 `isEmptyStr( v )`                        | **Is value an empty String?**
 `objLength( o )`                         | **Length of an Object.**

@@ -18,23 +18,23 @@ if (typeof Object.keys !== "function") {
     };
 }
 if (typeof Array.prototype.forEach !== "function") {
-	Array.prototype.forEach = function (c, t) {
-		var o, len, k, kVal;
-		if (this !== null) {
-			o = Object(this);
-			len = o.length >>> 0;
-			if (typeof c === "function") {
-				k = 0;
-				while (k < len) {
-					if (k in o) {
-						kVal = o[k];
-						c.call(t, kVal, k, o);
-					}
-					k += 1;
-				}
-			}
-		}
-	};
+    Array.prototype.forEach = function (c, t) {
+        var o, len, k, kVal;
+        if (this !== null) {
+            o = Object(this);
+            len = o.length >>> 0;
+            if (typeof c === "function") {
+                k = 0;
+                while (k < len) {
+                    if (k in o) {
+                        kVal = o[k];
+                        c.call(t, kVal, k, o);
+                    }
+                    k += 1;
+                }
+            }
+        }
+    };
 }
 (function (exported) {
     if (typeof define === "function" && define.amd) {
@@ -138,21 +138,21 @@ if (typeof Array.prototype.forEach !== "function") {
     function isNum(v) {
         return typeof v === "number" && !isNAN(v);
     }
-	function isNAN(v) {
-		if (typeof Number.isNaN === "function") {
-			return Number.isNaN(v);
-		} else if (typeof isNaN === "function") {
-			return (
-				!isObj(v) &&
-				!isStr(v) &&
-				!isUndef(v) &&
-				!isArr(v) &&
-				isNaN(v)
-			);
-		} else {
-			return v !== NaN ? false : true;
-		}
-	}
+    function isNAN(v) {
+        if (typeof Number.isNaN === "function") {
+            return Number.isNaN(v);
+        } else if (typeof isNaN === "function") {
+            return (
+                !isObj(v) &&
+                !isStr(v) &&
+                !isUndef(v) &&
+                !isArr(v) &&
+                isNaN(v)
+            );
+        } else {
+            return v !== NaN ? false : true;
+        }
+    }
     function isBool(v) {
         return typeof v === "boolean";
     }
@@ -160,9 +160,9 @@ if (typeof Array.prototype.forEach !== "function") {
         return typeof v === "undefined";
     }
     function isNull(v) {
-		return typeof v === "object" && v === null;
-	}
-	function isEmptyStr(v) {
+        return typeof v === "object" && v === null;
+    }
+    function isEmptyStr(v) {
         return typeof v === "string"  &&  v.length === 0;
     }
     function objLength(o) {
@@ -247,10 +247,10 @@ if (typeof Array.prototype.forEach !== "function") {
         isFn: isFn,
         isStr: isStr,
         isNum: isNum,
-		isNAN: isNAN,
+        isNAN: isNAN,
         isBool: isBool,
         isUndef: isUndef,
-		isNull: isNull,
+        isNull: isNull,
         isEmptyStr: isEmptyStr,
         objLength: objLength,
         substrBeforeLast: substrBeforeLast,

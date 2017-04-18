@@ -1,5 +1,4 @@
-Some utility functions that I always use:
------------------------------------------
+## Some utility functions that I always use:
 
 Method | Description
 -----------------------------------------|---------------------------------------------------------------------------------------------
@@ -31,13 +30,12 @@ Method | Description
 `substrAfterFirst( char, str )`          | **Get the substring after the last occurrence of `char` in `str`.**
 `extend( obj1, obj2 [, obj3, ...] )`     | **Make the right-most object argument inherit from the previous left object arguments. (`obj2` inherits from `obj1`, `obj3` inherits from `obj2`.)**
 
-util.extend() example:
-----------------------
+## util.extend() example:
 ```javascript
 function newPerson(name, age) {
     var inst = {}; // the instance (this)
 
-    inst.name = name || 'no_name';
+    inst.name = name || "no_name";
     inst.age  = age  || false;
 
     return inst;
@@ -50,23 +48,23 @@ function newEmployee(name, age, jobTitle, id) {
 
     inst = util.extend( person, inst );
 
-    inst.jobTitle  = jobTitle || 'uknown_title';
-    inst.employeId = id       || 'employe_'+(idCounter+=1);
+    inst.jobTitle  = jobTitle || "uknown_title";
+    inst.employeId = id       || "employe_"+(idCounter+=1);
 
     return inst;
 }
 
-var employee = newEmployee('ali', 26, 'product_manager');
+var employee = newEmployee("ali", 26, "product_manager");
 
-employee.name      // 'ali'
+employee.name      // "ali"
 employee.age       // 26
-employee.jobTitle  // 'product_manager'
-employee .id       // 'employe_1'
+employee.jobTitle  // "product_manager"
+employee .id       // "employe_1"
 
 // You can think of it this way:
 class Employee extends Person {
     constructor(name, age, jobTitle, id) {
-        // super(name, age);
+        super(name, age);
     }
 }
 ```

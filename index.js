@@ -17,7 +17,25 @@ if (typeof Object.keys !== "function") {
         return keys;
     };
 }
-
+if (typeof Array.prototype.forEach !== "function") {
+	Array.prototype.forEach = function (c, t) {
+		var o, len, k, kVal;
+		if (this !== null) {
+			o = Object(this);
+			len = o.length >>> 0;
+			if (typeof c === "function") {
+				k = 0;
+				while (k < len) {
+					if (k in o) {
+						kVal = o[k];
+						c.call(t, kVal, k, o);
+					}
+					k += 1;
+				}
+			}
+		}
+	};
+}
 (function (exported) {
     if (typeof define === "function" && define.amd) {
         define(exported);

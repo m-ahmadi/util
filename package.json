@@ -1,8 +1,8 @@
 {
   "name": "util-ma",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Some utility functions that I always use.",
-  "main": "index.js",
+  "main": "util-ma.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

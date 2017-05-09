@@ -43,7 +43,7 @@ if (typeof Array.prototype.forEach !== "function") {
                typeof process.versions.node !== "undefined") {
         module.exports = exported;
     } else {
-        window.util = exported;
+		window.util = exported;
     }
 }((function () {
     function isObj(v) {
@@ -229,6 +229,35 @@ if (typeof Array.prototype.forEach !== "function") {
         }
         return result;
     }
+	function getCommentsInside(selector) {
+		if (!jQuery && !$) { return; }
+		return $(selector).contents().filter( function () { return this.nodeType === 8; } );
+	}
+	function getFirstCommentInside(selector) {
+		if (!jQuery && !$) { return; }
+		return getCommentsInside(selector)[0].nodeValue.trim();
+	}
+	function getEls(root, obj) {
+		if (!jQuery && !$) { return; }
+		let o = {};
+		o.root = $(root);
+		$(root+" [data-el]").each((i, domEl) => {
+			let j = $(domEl);
+			o[ j.data("el") ] = j; 
+		});
+		$(root+" [data-els]").each((i, domEl) => {
+			let j = $(domEl);
+			let k = j.data("els");
+			if (!o[k]) {
+				o[k] = $(root+" [data-els="+k+"]");
+			}
+		});
+		if (obj) {
+			obj = o;
+		} else {
+			return o;
+		}
+	}
 
     return {
         isObj: isObj,
@@ -257,6 +286,10 @@ if (typeof Array.prototype.forEach !== "function") {
         substrAfterLast: substrAfterLast,
         substrBeforeFirst: substrBeforeFirst,
         substrAfterFirst: substrAfterFirst,
-        extend: extend
+        extend: extend,
+		// jQuery:
+		getCommentsInside: getCommentsInside,
+		getFirstCommentInside: getFirstCommentInside,
+		getEls: getEls
     };
 }())));

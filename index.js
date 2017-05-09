@@ -43,7 +43,7 @@ if (typeof Array.prototype.forEach !== "function") {
                typeof process.versions.node !== "undefined") {
         module.exports = exported;
     } else {
-		window.util = exported;
+		window.u = exported;
     }
 }((function () {
     function isObj(v) {

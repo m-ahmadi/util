@@ -229,16 +229,19 @@ if (typeof Array.prototype.forEach !== "function") {
         }
         return result;
     }
+	function noJq() {
+		return typeof jQuery === "undefined" && typeof $ === "undefined";
+	}
 	function getCommentsInside(selector) {
-		if (!jQuery && !$) { return; }
+		if ( noJq() ) { return; }
 		return $(selector).contents().filter( function () { return this.nodeType === 8; } );
 	}
 	function getFirstCommentInside(selector) {
-		if (!jQuery && !$) { return; }
+		if ( noJq() ) { return; }
 		return getCommentsInside(selector)[0].nodeValue.trim();
 	}
 	function getEls(root, obj) {
-		if (!jQuery && !$) { return; }
+		if ( noJq() ) { return; }
 		let o = {};
 		o.root = $(root);
 		$(root+" [data-el]").each((i, domEl) => {

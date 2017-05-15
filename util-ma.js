@@ -43,7 +43,7 @@ if (typeof Array.prototype.forEach !== "function") {
                typeof process.versions.node !== "undefined") {
         module.exports = exported;
     } else {
-		window.u = exported;
+        window.u = exported;
     }
 }((function () {
     function isObj(v) {
@@ -229,40 +229,40 @@ if (typeof Array.prototype.forEach !== "function") {
         }
         return result;
     }
-	function noJq() {
-		return typeof jQuery === "undefined" && typeof $ === "undefined";
-	}
-	function getCommentsInside(selector) {
-		if ( noJq() ) { return; }
-		return $(selector).contents().filter( function () { return this.nodeType === 8; } );
-	}
-	function getFirstCommentInside(selector) {
-		if ( noJq() ) { return; }
-		return getCommentsInside(selector)[0].nodeValue.trim();
-	}
-	function getEls(root, obj) {
-		if ( noJq() || (!root && !obj) ) { return; }
-		var o = {};
-		o.root = $(root);
-		$(root+" [data-el]").each(function (i, domEl) {
-			var j = $(domEl);
-			o[ j.data("el") ] = j; 
-		});
-		$(root+" [data-els]").each(function (i, domEl) {
-			var j = $(domEl);
-			var ks = j.data("els").split(" ");
-			ks.forEach(function (k) {
-				if (!o[k]) {
-					o[k] = $(root+" [data-els~="+k+"]");
-				}
-			});
-		});
-		if (obj) {
-			obj = o;
-		} else {
-			return o;
-		}
-	}
+    function noJq() {
+        return typeof jQuery === "undefined" && typeof $ === "undefined";
+    }
+    function getCommentsInside(selector) {
+        if ( noJq() ) { return; }
+        return $(selector).contents().filter( function () { return this.nodeType === 8; } );
+    }
+    function getFirstCommentInside(selector) {
+        if ( noJq() ) { return; }
+        return getCommentsInside(selector)[0].nodeValue.trim();
+    }
+    function getEls(root, obj) {
+        if ( noJq() || (!root && !obj) ) { return; }
+        var o = {};
+        o.root = $(root);
+        $(root+" [data-el]").each(function (i, domEl) {
+            var j = $(domEl);
+            o[ j.data("el") ] = j;
+        });
+        $(root+" [data-els]").each(function (i, domEl) {
+            var j = $(domEl);
+            var ks = j.data("els").split(" ");
+            ks.forEach(function (k) {
+                if (!o[k]) {
+                    o[k] = $(root+" [data-els~="+k+"]");
+                }
+            });
+        });
+        if (obj) {
+            obj = o;
+        } else {
+            return o;
+        }
+    }
 
     return {
         isObj: isObj,
@@ -292,9 +292,9 @@ if (typeof Array.prototype.forEach !== "function") {
         substrBeforeFirst: substrBeforeFirst,
         substrAfterFirst: substrAfterFirst,
         extend: extend,
-		// jQuery:
-		getCommentsInside: getCommentsInside,
-		getFirstCommentInside: getFirstCommentInside,
-		getEls: getEls
+        // jQuery:
+        getCommentsInside: getCommentsInside,
+        getFirstCommentInside: getFirstCommentInside,
+        getEls: getEls
     };
 }())));

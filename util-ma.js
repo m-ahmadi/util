@@ -241,19 +241,21 @@ if (typeof Array.prototype.forEach !== "function") {
 		return getCommentsInside(selector)[0].nodeValue.trim();
 	}
 	function getEls(root, obj) {
-		if ( noJq() ) { return; }
-		let o = {};
+		if ( noJq() || (!root && !obj) ) { return; }
+		var o = {};
 		o.root = $(root);
-		$(root+" [data-el]").each((i, domEl) => {
-			let j = $(domEl);
+		$(root+" [data-el]").each(function (i, domEl) {
+			var j = $(domEl);
 			o[ j.data("el") ] = j; 
 		});
-		$(root+" [data-els]").each((i, domEl) => {
-			let j = $(domEl);
-			let k = j.data("els");
-			if (!o[k]) {
-				o[k] = $(root+" [data-els="+k+"]");
-			}
+		$(root+" [data-els]").each(function (i, domEl) {
+			var j = $(domEl);
+			var ks = j.data("els").split(" ");
+			ks.forEach(function (k) {
+				if (!o[k]) {
+					o[k] = $(root+" [data-els~="+k+"]");
+				}
+			});
 		});
 		if (obj) {
 			obj = o;

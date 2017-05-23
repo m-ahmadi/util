@@ -242,13 +242,22 @@ if (typeof Array.prototype.forEach !== "function") {
     }
     function getEls(root, obj) {
         if ( noJq() || (!root && !obj) ) { return; }
-        var o = {};
-        o.root = $(root);
-        $(root+" [data-el]").each(function (i, domEl) {
+        var o = {},
+            el, els;
+        if ( isStr(root) ) {
+            o.root = $(root);
+            el = $(root+" [data-el]");
+            els = $(root+" [data-els]");
+        } else if (root instanceof jQuery) {
+            o.root = root;
+            el = root.find("[data-el]");
+            els = root.find("[data-els]");
+        }
+        el.each(function (i, domEl) {
             var j = $(domEl);
             o[ j.data("el") ] = j;
         });
-        $(root+" [data-els]").each(function (i, domEl) {
+        els.each(function (i, domEl) {
             var j = $(domEl);
             var ks = j.data("els").split(" ");
             ks.forEach(function (k) {

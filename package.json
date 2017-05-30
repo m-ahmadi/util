@@ -1,6 +1,6 @@
 {
   "name": "util-ma",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "Some utility functions that I always use.",
   "main": "util-ma.js",
   "scripts": {

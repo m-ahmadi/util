@@ -70,14 +70,14 @@ if (typeof Array.prototype.forEach !== "function") {
     }
     function getArgs(a) {
         var len, args, i;
-		if (a) {
-			len = a.length;
-			args = new Array(len);
-			for (i=0; i<len; i+=1) {
-				args[i] = a[i];
-			}
-			return args;
-		}
+        if (a) {
+            len = a.length;
+            args = new Array(len);
+            for (i=0; i<len; i+=1) {
+                args[i] = a[i];
+            }
+            return args;
+        }
     }
     function moveArrItem(a, f, t) { // array, from, to
         a.splice( t, 0, a.splice(f, 1)[0] );

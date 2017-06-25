@@ -232,6 +232,7 @@ if (typeof Array.prototype.forEach !== "function") {
         }
         return result;
     }
+    // jQuery:
     function noJq() {
         return typeof jQuery === "undefined"  &&  typeof $ === "undefined";
     }
@@ -243,11 +244,22 @@ if (typeof Array.prototype.forEach !== "function") {
         if ( noJq() ) { return; }
         return getCommentsInside(selector)[0].nodeValue.trim();
     }
+    function isValidSelector(selector) {
+        var el;
+        if ( !isStr(selector) ) return false;
+        try {
+            el = $(selector);
+        } catch(err) {
+            return false;
+        }
+        return true;
+    }
     function getEls(root, obj) {
         if ( noJq() || (!root && !obj) ) { return; }
         var o = {},
             el, els;
         if ( isStr(root) ) {
+            if ( !isValidSelector(root) ) { throw new TypeError("getEls(): Invalid jQuery selector."); }
             o.root = $(root);
             el = $(root+" [data-el]");
             els = $(root+" [data-els]");
@@ -262,10 +274,10 @@ if (typeof Array.prototype.forEach !== "function") {
         });
         els.each(function (i, domEl) {
             var j = $(domEl);
-            var ks = j.data("els").split(" ");
-            ks.forEach(function (k) {
-                if (!o[k]) {
-                    o[k] = $(root+" [data-els~="+k+"]");
+            var keys = j.data("els").split(" ");
+            keys.forEach(function (k) {
+                if ( !o[k] ) {
+                    o[k] = j;
                 }
             });
         });
@@ -307,6 +319,7 @@ if (typeof Array.prototype.forEach !== "function") {
         // jQuery:
         getCommentsInside: getCommentsInside,
         getFirstCommentInside: getFirstCommentInside,
+        isValidSelector: isValidSelector,
         getEls: getEls
     };
 }())));

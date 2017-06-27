@@ -279,7 +279,7 @@ if (typeof Array.prototype.forEach !== "function") {
                 var p;
                 if ( !o[k] ) o[k] = $();
                 p = o[k];
-                p = p.add(j);
+                o[k] = p.add(j);
             });
         });
         if (obj) {

@@ -276,9 +276,10 @@ if (typeof Array.prototype.forEach !== "function") {
             var j = $(domEl);
             var keys = j.data("els").split(" ");
             keys.forEach(function (k) {
-                if ( !o[k] ) {
-                    o[k] = j;
-                }
+                var p;
+                if ( !o[k] ) o[k] = $();
+                p = o[k];
+                p = p.add(j);
             });
         });
         if (obj) {

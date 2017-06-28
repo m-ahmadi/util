@@ -283,7 +283,9 @@ if (typeof Array.prototype.forEach !== "function") {
             });
         });
         if (obj) {
-            obj = o;
+            Object.keys(o).forEach(k => {
+                if ( !obj[k] ) obj[k] = o[k];
+            });
         } else {
             return o;
         }

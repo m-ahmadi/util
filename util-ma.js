@@ -46,6 +46,7 @@ if (typeof Array.prototype.forEach !== "function") {
         window.u = exported;
     }
 }((function () {
+    "use strict";
     function isObj(v) {
         return (
             v &&
@@ -249,13 +250,13 @@ if (typeof Array.prototype.forEach !== "function") {
         if ( !isStr(selector) ) return false;
         try {
             el = $(selector);
-        } catch(err) {
+        } catch (err) {
             return false;
         }
         return true;
     }
     function getEls(root, obj) {
-        if ( noJq() || (!root && !obj) ) { return; }
+        if ( noJq() || (!root && !obj) ) return;
         var o = {},
             el, els;
         if ( isStr(root) ) {
@@ -273,8 +274,8 @@ if (typeof Array.prototype.forEach !== "function") {
             o[ j.data("el") ] = j;
         });
         els.each(function (i, domEl) {
-            var j = $(domEl);
-            var keys = j.data("els").split(" ");
+            var j = $(domEl),
+                keys = j.data("els").split(" ");
             keys.forEach(function (k) {
                 var p;
                 if ( !o[k] ) o[k] = $();
@@ -289,6 +290,18 @@ if (typeof Array.prototype.forEach !== "function") {
         } else {
             return o;
         }
+    }
+    // Handlebars:
+    function getTemps(space, src) {
+        var o = src || Handlebars.templates,
+            f = substrAfterLast,
+            res = {};
+        Object.keys(o).forEach(function (k) {
+            if ( k.indexOf(space) !== -1 ) {
+                res[ f("/", k) ] = o[k];
+            }
+        });
+        return res;
     }
 
     return {
@@ -323,6 +336,8 @@ if (typeof Array.prototype.forEach !== "function") {
         getCommentsInside: getCommentsInside,
         getFirstCommentInside: getFirstCommentInside,
         isValidSelector: isValidSelector,
-        getEls: getEls
+        getEls: getEls,
+        // Handlebars:
+        getTemps: getTemps
     };
 }())));

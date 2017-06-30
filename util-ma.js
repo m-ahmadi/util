@@ -299,6 +299,8 @@ if (typeof Array.prototype.forEach !== "function") {
         Object.keys(o).forEach(function (k) {
             if ( k.indexOf(space) !== -1 ) {
                 res[ f("/", k) ] = o[k];
+            } else if ( k.indexOf("/") === -1 ) {
+                res[k] = o[k];
             }
         });
         return res;

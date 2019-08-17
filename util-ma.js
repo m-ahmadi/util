@@ -47,14 +47,7 @@ if (typeof Array.prototype.forEach !== "function") {
   }
 }((function () {
   "use strict";
-  function isObj(v) {
-    return (
-      v &&
-      typeof v === "object" &&
-      typeof v !== null &&
-      Object.prototype.toString.call(v) === "[object Object]"
-    );
-  }
+	// arrays
   function isArr(v) {
     if (typeof Array.isArray === "function") {
       return Array.isArray(v);
@@ -69,7 +62,14 @@ if (typeof Array.prototype.forEach !== "function") {
       );
     }
   }
-  function getArgs(a) {
+	function moveArrItem(a, f, t) { // array, from, to
+    a.splice( t, 0, a.splice(f, 1)[0] );
+  }
+	// functions
+  function isFn(v) {
+    return typeof v === "function";
+  }
+	function getArgs(a) {
     var len, args, i;
     if (a) {
       len = a.length;
@@ -80,79 +80,28 @@ if (typeof Array.prototype.forEach !== "function") {
       return args;
     }
   }
-  function moveArrItem(a, f, t) { // array, from, to
-    a.splice( t, 0, a.splice(f, 1)[0] );
-  }
-  function isInt(n) {
-    return isNum(n)  &&  n % 1 === 0;
-  }
-  function negateNum(n) {
-    return isNum(n) ? Math.abs(n) * -1 : undefined;
-  }
-  function positNum(n) {
-    return isNum(n) ? Math.abs(n) : undefined;
-  }
-  function reverseNumSign(n) {
-    if ( isNum(n) ) {
-      if (n > 0) {
-        return negateNum(n);
-      } else if (n < 0) {
-        return positNum(n);
-      }
-    }
-  }
-  function isNumOdd(n) {
-    return isNum(n)  &&  (n % 2);
-  }
-  function randInt(min, max) { // default between 0 and 10
-    min = min ? Math.ceil(min) : 0;
-    max = max ? Math.floor(max) : 10;
-    return Math.floor(Math.random() * (max - min)) + min;
-  }
-  function randFloat(min, max) { // default between 0 and 10
-    min = min ? min : 0;
-    max = max ? max : 10;
-    return Math.random() * (max - min) + min;
-  }
-  function toDecimalPlace(n, p) {
-    return isNum(n) ? parseFloat( n.toFixed(p) ) : undefined;
-  }
-  function isEmptyObj(o) {
-    var k;
-    if ( isObj(o) ) {
-      if ( typeof Object.getOwnPropertyNames === "function" ) {
-        return Object.getOwnPropertyNames(o).length === 0; // ES5
-      } else {
-        for ( k in o ) {
-          if (  o.hasOwnProperty( k )  ) {
-            return false;
-          }
-        }
-        return true;
-      }
-    }
-    return false;
-  }
-  function isFn(v) {
-    return typeof v === "function";
-  }
+	// strings
   function isStr(v) {
     return typeof v === "string";
   }
+	function isEmptyStr(v) {
+    return typeof v === "string"  &&  v.length === 0;
+  }
+	function substrBeforeLast(c, s) {
+    return isStr(c) && isStr(s) ? s.substr( 0, s.lastIndexOf(c) ) : undefined;
+  }
+  function substrAfterLast(c, s) {
+    return isStr(c) && isStr(s) ? s.substring(s.lastIndexOf(c) + 1) : undefined;
+  }
+  function substrBeforeFirst(c, s) {
+    return isStr(c) && isStr(s) ? s.substr( 0, s.indexOf(c) ) : undefined;
+  }
+  function substrAfterFirst(c, s) {
+    return isStr(c) && isStr(s) ? s.substring(s.indexOf(c) + 1) : undefined;
+  }
+	// numbers
   function isNum(v) {
     return typeof v === "number" && !isNAN(v);
-  }
-  function isBool(v) {
-    return typeof v === "boolean";
-  }
-  function isUndef(v) {
-    return typeof v === "undefined";
-  }
-  function isNull(v) {
-    return typeof v === "object" && v === null;
-  }
-  function isEmptyStr(v) {
-    return typeof v === "string"  &&  v.length === 0;
   }
 	function isNAN(v) {
     if (typeof Number.isNaN === "function") {
@@ -169,22 +118,79 @@ if (typeof Array.prototype.forEach !== "function") {
       return v !== NaN ? false : true;
     }
   }
-  function objLength(o) {
+	function isInt(n) {
+    return isNum(n)  &&  n % 1 === 0;
+  }
+	function isNumOdd(n) {
+    return isNum(n)  &&  (n % 2);
+  }
+  function negateNum(n) {
+    return isNum(n) ? Math.abs(n) * -1 : undefined;
+  }
+  function positNum(n) {
+    return isNum(n) ? Math.abs(n) : undefined;
+  }
+  function reverseNumSign(n) {
+    if ( isNum(n) ) {
+      if (n > 0) {
+        return negateNum(n);
+      } else if (n < 0) {
+        return positNum(n);
+      }
+    }
+  }
+  function randInt(min, max) { // default between 0 and 10
+    min = min ? Math.ceil(min) : 0;
+    max = max ? Math.floor(max) : 10;
+    return Math.floor(Math.random() * (max - min)) + min;
+  }
+  function randFloat(min, max) { // default between 0 and 10
+    min = min ? min : 0;
+    max = max ? max : 10;
+    return Math.random() * (max - min) + min;
+  }
+  function toDecimalPlace(n, p) {
+    return isNum(n) ? parseFloat( n.toFixed(p) ) : undefined;
+  }
+	// misc
+  function isBool(v) {
+    return typeof v === "boolean";
+  }
+  function isUndef(v) {
+    return typeof v === "undefined";
+  }
+  function isNull(v) {
+    return typeof v === "object" && v === null;
+  }
+  // objects
+  function isObj(v) {
+    return (
+      v &&
+      typeof v === "object" &&
+      typeof v !== null &&
+      Object.prototype.toString.call(v) === "[object Object]"
+    );
+  }
+	function isEmptyObj(o) {
+    var k;
+    if ( isObj(o) ) {
+      if ( typeof Object.getOwnPropertyNames === "function" ) {
+        return Object.getOwnPropertyNames(o).length === 0; // ES5
+      } else {
+        for ( k in o ) {
+          if (  o.hasOwnProperty( k )  ) {
+            return false;
+          }
+        }
+        return true;
+      }
+    }
+    return false;
+  }
+	function objLength(o) {
     if ( isObj(o) ) {
       return Object.keys(o).length;
     }
-  }
-  function substrBeforeLast(c, s) {
-    return isStr(c) && isStr(s) ? s.substr( 0, s.lastIndexOf(c) ) : undefined;
-  }
-  function substrAfterLast(c, s) {
-    return isStr(c) && isStr(s) ? s.substring(s.lastIndexOf(c) + 1) : undefined;
-  }
-  function substrBeforeFirst(c, s) {
-    return isStr(c) && isStr(s) ? s.substr( 0, s.indexOf(c) ) : undefined;
-  }
-  function substrAfterFirst(c, s) {
-    return isStr(c) && isStr(s) ? s.substring(s.indexOf(c) + 1) : undefined;
   }
   function extend() {
     var args = getArgs(arguments),

@@ -109,13 +109,14 @@ if (typeof Array.prototype.forEach !== "function") {
     } else if (typeof isNaN === "function") {
       return (
         !isObj(v) &&
+				!isArr(v) &&
         !isStr(v) &&
+				!isBool(v) &&
         !isUndef(v) &&
-        !isArr(v) &&
+				!v === null &&
+				typeof v === "number" &&
         isNaN(v)
       );
-    } else {
-      return v !== NaN ? false : true;
     }
   }
 	function isInt(n) {

@@ -2,20 +2,20 @@ These are some utility functions that I always use.
 
 ## Installation
 
-Browser - Global variable
+##### Browser - Global variable
 ```html
 <script src="util-ma.js"></script>
 ```
 The global variable `u` is used, you can change it from [here](https://github.com/m-ahmadi/util/blob/master/util-ma.js#L46).
 
-Browser - requirejs
+##### Browser - requirejs
 ```javascript
 define(['util-ma'], function (util) {
     util.isArr({}) // false
 });
 ```
 
-Node
+##### Node
 ```javascript
 const util = require('util-ma');
 ```

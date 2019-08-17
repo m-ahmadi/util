@@ -53,10 +53,10 @@ if (typeof Array.prototype.forEach !== "function") {
       typeof v === "object" &&
       typeof v !== null &&
       Object.prototype.toString.call(v) === "[object Object]"
-    ) ? true : false;
+    );
   }
   function isArr(v) {
-    if ( isFn(Array.isArray) ) {
+    if ( typeof Array.isArray === "function" ) {
       return Array.isArray(v);
     } else {
       return (
@@ -66,7 +66,7 @@ if (typeof Array.prototype.forEach !== "function") {
         typeof v.splice === "function" &&
         !v.propertyIsEnumerable("length") &&
         Object.prototype.toString.call(v) === "[object Array]"
-      ) ? true : false;
+      );
     }
   }
   function getArgs(a) {
@@ -102,7 +102,7 @@ if (typeof Array.prototype.forEach !== "function") {
     }
   }
   function isNumOdd(n) {
-    return isNum(n)  &&  (n % 2) ? true : false;
+    return isNum(n)  &&  (n % 2);
   }
   function randInt(min, max) { // default between 0 and 10
     min = min ? Math.ceil(min) : 0;
@@ -142,7 +142,19 @@ if (typeof Array.prototype.forEach !== "function") {
   function isNum(v) {
     return typeof v === "number" && !isNAN(v);
   }
-  function isNAN(v) {
+  function isBool(v) {
+    return typeof v === "boolean";
+  }
+  function isUndef(v) {
+    return typeof v === "undefined";
+  }
+  function isNull(v) {
+    return typeof v === "object" && v === null;
+  }
+  function isEmptyStr(v) {
+    return typeof v === "string"  &&  v.length === 0;
+  }
+	function isNAN(v) {
     if (typeof Number.isNaN === "function") {
       return Number.isNaN(v);
     } else if (typeof isNaN === "function") {
@@ -156,18 +168,6 @@ if (typeof Array.prototype.forEach !== "function") {
     } else {
       return v !== NaN ? false : true;
     }
-  }
-  function isBool(v) {
-    return typeof v === "boolean";
-  }
-  function isUndef(v) {
-    return typeof v === "undefined";
-  }
-  function isNull(v) {
-    return typeof v === "object" && v === null;
-  }
-  function isEmptyStr(v) {
-    return typeof v === "string"  &&  v.length === 0;
   }
   function objLength(o) {
     if ( isObj(o) ) {
@@ -227,7 +227,7 @@ if (typeof Array.prototype.forEach !== "function") {
     }
 
     if ( last && isObj(last) ) {
-      Object.keys(last).forEach(function(key) {
+      Object.keys(last).forEach(function (key) {
         result[key] = last[key];
       });
     }

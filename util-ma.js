@@ -56,7 +56,7 @@ if (typeof Array.prototype.forEach !== "function") {
     );
   }
   function isArr(v) {
-    if ( typeof Array.isArray === "function" ) {
+    if (typeof Array.isArray === "function") {
       return Array.isArray(v);
     } else {
       return (
@@ -175,16 +175,16 @@ if (typeof Array.prototype.forEach !== "function") {
     }
   }
   function substrBeforeLast(c, s) {
-    return isStr(c) && isStr(s) ? s.substr( 0, s.lastIndexOf(c) ) : false;
+    return isStr(c) && isStr(s) ? s.substr( 0, s.lastIndexOf(c) ) : undefined;
   }
   function substrAfterLast(c, s) {
-    return isStr(c) && isStr(s) ? s.substring(s.lastIndexOf(c) + 1) : false;
+    return isStr(c) && isStr(s) ? s.substring(s.lastIndexOf(c) + 1) : undefined;
   }
   function substrBeforeFirst(c, s) {
-    return isStr(c) && isStr(s) ? s.substr( 0, s.indexOf(c) ) : false;
+    return isStr(c) && isStr(s) ? s.substr( 0, s.indexOf(c) ) : undefined;
   }
   function substrAfterFirst(c, s) {
-    return isStr(c) && isStr(s) ? s.substring(s.indexOf(c) + 1) : false;
+    return isStr(c) && isStr(s) ? s.substring(s.indexOf(c) + 1) : undefined;
   }
   function extend() {
     var args = getArgs(arguments),

@@ -47,7 +47,7 @@ if (typeof Array.prototype.forEach !== "function") {
   }
 }((function () {
   "use strict";
-	// arrays
+  // arrays
   function isArr(v) {
     if (typeof Array.isArray === "function") {
       return Array.isArray(v);
@@ -62,14 +62,14 @@ if (typeof Array.prototype.forEach !== "function") {
       );
     }
   }
-	function moveArrItem(a, f, t) { // array, from, to
+  function moveArrItem(a, f, t) { // array, from, to
     a.splice( t, 0, a.splice(f, 1)[0] );
   }
-	// functions
+  // functions
   function isFn(v) {
     return typeof v === "function";
   }
-	function getArgs(a) {
+  function getArgs(a) {
     var len, args, i;
     if (a) {
       len = a.length;
@@ -80,14 +80,14 @@ if (typeof Array.prototype.forEach !== "function") {
       return args;
     }
   }
-	// strings
+  // strings
   function isStr(v) {
     return typeof v === "string";
   }
-	function isEmptyStr(v) {
+  function isEmptyStr(v) {
     return typeof v === "string"  &&  v.length === 0;
   }
-	function substrBeforeLast(c, s) {
+  function substrBeforeLast(c, s) {
     return isStr(c) && isStr(s) ? s.substr( 0, s.lastIndexOf(c) ) : undefined;
   }
   function substrAfterLast(c, s) {
@@ -99,30 +99,30 @@ if (typeof Array.prototype.forEach !== "function") {
   function substrAfterFirst(c, s) {
     return isStr(c) && isStr(s) ? s.substring(s.indexOf(c) + 1) : undefined;
   }
-	// numbers
+  // numbers
   function isNum(v) {
     return typeof v === "number" && !isNAN(v);
   }
-	function isNAN(v) {
+  function isNAN(v) {
     if (typeof Number.isNaN === "function") {
       return Number.isNaN(v);
     } else if (typeof isNaN === "function") {
       return (
         !isObj(v) &&
-				!isArr(v) &&
+        !isArr(v) &&
         !isStr(v) &&
-				!isBool(v) &&
+        !isBool(v) &&
         !isUndef(v) &&
-				!v === null &&
-				typeof v === "number" &&
+        !v === null &&
+        typeof v === "number" &&
         isNaN(v)
       );
     }
   }
-	function isInt(n) {
+  function isInt(n) {
     return isNum(n)  &&  n % 1 === 0;
   }
-	function isNumOdd(n) {
+  function isNumOdd(n) {
     return isNum(n)  &&  (n % 2);
   }
   function negateNum(n) {
@@ -153,7 +153,7 @@ if (typeof Array.prototype.forEach !== "function") {
   function toDecimalPlace(n, p) {
     return isNum(n) ? parseFloat( n.toFixed(p) ) : undefined;
   }
-	// misc
+  // misc
   function isBool(v) {
     return typeof v === "boolean";
   }
@@ -172,7 +172,7 @@ if (typeof Array.prototype.forEach !== "function") {
       Object.prototype.toString.call(v) === "[object Object]"
     );
   }
-	function isEmptyObj(o) {
+  function isEmptyObj(o) {
     var k;
     if ( isObj(o) ) {
       if ( typeof Object.getOwnPropertyNames === "function" ) {
@@ -188,7 +188,7 @@ if (typeof Array.prototype.forEach !== "function") {
     }
     return false;
   }
-	function objLength(o) {
+  function objLength(o) {
     if ( isObj(o) ) {
       return Object.keys(o).length;
     }

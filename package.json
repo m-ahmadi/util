@@ -1,6 +1,6 @@
 {
   "name": "util-ma",
-  "version": "1.1.16",
+  "version": "1.1.17",
   "description": "Some utility functions that I always use.",
   "main": "util-ma.js",
   "scripts": {
@@ -10,7 +10,10 @@
     "type": "git",
     "url": "git+https://github.com/m-ahmadi/util.git"
   },
-  "keywords": ["utility function", "convenience method"],
+  "keywords": [
+    "utility function",
+    "convenience method"
+  ],
   "author": "Mohammad Ahmadi",
   "license": "MIT",
   "bugs": {

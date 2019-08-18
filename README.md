@@ -48,7 +48,7 @@ Function | Description
 `isNumOdd(n)`                          | *Is a number odd?*
 `negateNum(n)`                         | *Make a positive number negative.*
 `positNum(n)`                          | *Make a negative number positive.*
-`reverseNumSign( n)`                   | *Reverse a number's sign.*
+`reverseNumSign(n)`                    | *Reverse a number's sign.*
 `randInt(min, max)`                    | *Generate a random integer, between min and max arguments. (default between 0 and 10)*
 `randFloat(min, max)`                  | *Generate a random floating-point, between min and max arguments. (default between 0 and 10)*
 `toDecimalPlace(n)`                    | *Filter a floating-point decimal places to a specific amount.*

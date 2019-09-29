@@ -1,11 +1,11 @@
-if (typeof Object.create !== "function") {
+if (typeof Object.create !== 'function') {
   Object.create = function (o) {
     function F() {}
     F.prototype = o;
     return new F();
   };
 }
-if (typeof Object.keys !== "function") {
+if (typeof Object.keys !== 'function') {
   Object.keys = function (o) {
     var keys = [],
       k;
@@ -17,13 +17,13 @@ if (typeof Object.keys !== "function") {
     return keys;
   };
 }
-if (typeof Array.prototype.forEach !== "function") {
+if (typeof Array.prototype.forEach !== 'function') {
   Array.prototype.forEach = function (c, t) {
     var o, len, k, kVal;
     if (this !== null) {
       o = Object(this);
       len = o.length >>> 0;
-      if (typeof c === "function") {
+      if (typeof c === 'function') {
         k = 0;
         while (k < len) {
           if (k in o) {
@@ -37,28 +37,28 @@ if (typeof Array.prototype.forEach !== "function") {
   };
 }
 (function (exported) {
-  if (typeof define === "function" && define.amd) {
+  if (typeof define === 'function' && define.amd) {
     define(exported);
-  } else if (typeof process !== "undefined" &&
-             typeof process.versions.node !== "undefined") {
+  } else if (typeof process !== 'undefined' &&
+             typeof process.versions.node !== 'undefined') {
     module.exports = exported;
   } else {
     window.u = exported;
   }
 }((function () {
-  "use strict";
+  'use strict';
   // arrays
   function isArr(v) {
-    if (typeof Array.isArray === "function") {
+    if (typeof Array.isArray === 'function') {
       return Array.isArray(v);
     } else {
       return (
         v &&
-        typeof v === "object" &&
-        typeof v.length === "number" &&
-        typeof v.splice === "function" &&
-        !v.propertyIsEnumerable("length") &&
-        Object.prototype.toString.call(v) === "[object Array]"
+        typeof v === 'object' &&
+        typeof v.length === 'number' &&
+        typeof v.splice === 'function' &&
+        !v.propertyIsEnumerable('length') &&
+        Object.prototype.toString.call(v) === '[object Array]'
       ) ? true : false;
     }
   }
@@ -67,7 +67,7 @@ if (typeof Array.prototype.forEach !== "function") {
   }
   // functions
   function isFn(v) {
-    return typeof v === "function";
+    return typeof v === 'function';
   }
   function getArgs(a) {
     var len, args, i;
@@ -82,10 +82,10 @@ if (typeof Array.prototype.forEach !== "function") {
   }
   // strings
   function isStr(v) {
-    return typeof v === "string";
+    return typeof v === 'string';
   }
   function isEmptyStr(v) {
-    return typeof v === "string"  &&  v.length === 0;
+    return typeof v === 'string'  &&  v.length === 0;
   }
   function substrBeforeLast(c, s) {
     return isStr(c) && isStr(s) ? s.substr( 0, s.lastIndexOf(c) ) : undefined;
@@ -101,12 +101,12 @@ if (typeof Array.prototype.forEach !== "function") {
   }
   // numbers
   function isNum(v) {
-    return typeof v === "number" && !isNAN(v);
+    return typeof v === 'number' && !isNAN(v);
   }
   function isNAN(v) {
-    if (typeof Number.isNaN === "function") {
+    if (typeof Number.isNaN === 'function') {
       return Number.isNaN(v);
-    } else if (typeof isNaN === "function") {
+    } else if (typeof isNaN === 'function') {
       return (
         !isObj(v) &&
         !isArr(v) &&
@@ -114,7 +114,7 @@ if (typeof Array.prototype.forEach !== "function") {
         !isBool(v) &&
         !isUndef(v) &&
         !v === null &&
-        typeof v === "number" &&
+        typeof v === 'number' &&
         isNaN(v)
       ) ? true : false;
     }
@@ -155,27 +155,27 @@ if (typeof Array.prototype.forEach !== "function") {
   }
   // misc
   function isBool(v) {
-    return typeof v === "boolean";
+    return typeof v === 'boolean';
   }
   function isUndef(v) {
-    return typeof v === "undefined";
+    return typeof v === 'undefined';
   }
   function isNull(v) {
-    return typeof v === "object" && v === null;
+    return typeof v === 'object' && v === null;
   }
   // objects
   function isObj(v) {
     return (
       v &&
-      typeof v === "object" &&
+      typeof v === 'object' &&
       typeof v !== null &&
-      Object.prototype.toString.call(v) === "[object Object]"
+      Object.prototype.toString.call(v) === '[object Object]'
     ) ? true : false;
   }
   function isEmptyObj(o) {
     var k;
     if ( isObj(o) ) {
-      if ( typeof Object.getOwnPropertyNames === "function" ) {
+      if ( typeof Object.getOwnPropertyNames === 'function' ) {
         return Object.getOwnPropertyNames(o).length === 0; // ES5
       } else {
         for ( k in o ) {
@@ -242,7 +242,7 @@ if (typeof Array.prototype.forEach !== "function") {
   }
   // jQuery:
   function noJq() {
-    return typeof jQuery === "undefined"  &&  typeof $ === "undefined";
+    return typeof jQuery === 'undefined'  &&  typeof $ === 'undefined';
   }
   function getCommentsInside(selector) {
     if ( noJq() ) { return; }
@@ -267,22 +267,22 @@ if (typeof Array.prototype.forEach !== "function") {
     var o = {},
       el, els;
     if ( isStr(root) ) {
-      if ( !isValidSelector(root) ) { throw new TypeError("getEls(): Invalid jQuery selector."); }
+      if ( !isValidSelector(root) ) { throw new TypeError('getEls(): Invalid jQuery selector.'); }
       o.root = $(root);
-      el = $(root+" [data-el]");
-      els = $(root+" [data-els]");
+      el = $(root+' [data-el]');
+      els = $(root+' [data-els]');
     } else if (root instanceof jQuery) {
       o.root = root;
-      el = root.find("[data-el]");
-      els = root.find("[data-els]");
+      el = root.find('[data-el]');
+      els = root.find('[data-els]');
     }
     el.each(function (i, domEl) {
       var j = $(domEl);
-      o[ j.data("el") ] = j;
+      o[ j.data('el') ] = j;
     });
     els.each(function (i, domEl) {
       var j = $(domEl),
-        keys = j.data("els").split(" ");
+        keys = j.data('els').split(' ');
       keys.forEach(function (k) {
         var p;
         if ( !o[k] ) o[k] = $();
@@ -305,8 +305,8 @@ if (typeof Array.prototype.forEach !== "function") {
       res = {};
     Object.keys(o).forEach(function (k) {
       if ( k.indexOf(space) !== -1 ) {
-        res[ f("/", k) ] = o[k];
-      } else if ( k.indexOf("/") === -1 ) {
+        res[ f('/', k) ] = o[k];
+      } else if ( k.indexOf('/') === -1 ) {
         res[k] = o[k];
       }
     });

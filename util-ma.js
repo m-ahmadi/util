@@ -59,7 +59,7 @@ if (typeof Array.prototype.forEach !== "function") {
         typeof v.splice === "function" &&
         !v.propertyIsEnumerable("length") &&
         Object.prototype.toString.call(v) === "[object Array]"
-      );
+      ) ? true : false;
     }
   }
   function moveArrItem(a, f, t) { // array, from, to
@@ -116,7 +116,7 @@ if (typeof Array.prototype.forEach !== "function") {
         !v === null &&
         typeof v === "number" &&
         isNaN(v)
-      );
+      ) ? true : false;
     }
   }
   function isInt(n) {
@@ -170,7 +170,7 @@ if (typeof Array.prototype.forEach !== "function") {
       typeof v === "object" &&
       typeof v !== null &&
       Object.prototype.toString.call(v) === "[object Object]"
-    );
+    ) ? true : false;
   }
   function isEmptyObj(o) {
     var k;
@@ -350,3 +350,4 @@ if (typeof Array.prototype.forEach !== "function") {
     getTemps: getTemps
   };
 }())));
+

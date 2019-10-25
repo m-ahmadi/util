@@ -83,7 +83,7 @@
 
     if (len === 1) {
       first = args[0];
-      if ( isArr(first)  &&  first.length > 1 ) {
+      if ( Array.isArray(first)  &&  first.length > 1 ) {
         last = first.pop();
         objects = first;
       } else if ( isObj(first) ){

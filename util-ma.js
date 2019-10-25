@@ -18,38 +18,36 @@
     return typeof v === 'string'  &&  v.length === 0;
   }
   function substrBeforeLast(c, s) {
-    return isStr(c) && isStr(s) ? s.substr( 0, s.lastIndexOf(c) ) : undefined;
+    return s.substr( 0, s.lastIndexOf(c) );
   }
   function substrAfterLast(c, s) {
-    return isStr(c) && isStr(s) ? s.substring(s.lastIndexOf(c) + 1) : undefined;
+    return s.substring(s.lastIndexOf(c) + 1);
   }
   function substrBeforeFirst(c, s) {
-    return isStr(c) && isStr(s) ? s.substr( 0, s.indexOf(c) ) : undefined;
+    return s.substr( 0, s.indexOf(c) );
   }
   function substrAfterFirst(c, s) {
-    return isStr(c) && isStr(s) ? s.substring(s.indexOf(c) + 1) : undefined;
+    return s.substring(s.indexOf(c) + 1);
   }
   // numbers
   function isInt(n) {
-    return isNum(n)  &&  n % 1 === 0;
+    return n % 1 === 0;
   }
   function isNumOdd(n) {
-    return isNum(n)  &&  (n % 2);
+		return n % 2;
   }
   function negateNum(n) {
-    return isNum(n) ? Math.abs(n) * -1 : undefined;
+    return Math.abs(n) * -1;
   }
   function positNum(n) {
-    return isNum(n) ? Math.abs(n) : undefined;
+    return Math.abs(n);
   }
   function reverseNumSign(n) {
-    if ( isNum(n) ) {
-      if (n > 0) {
-        return negateNum(n);
-      } else if (n < 0) {
-        return positNum(n);
-      }
-    }
+    if (n > 0) {
+			return negateNum(n);
+		} else if (n < 0) {
+			return positNum(n);
+		}
   }
   function randInt(min, max) { // default between 0 and 10
     min = min ? Math.ceil(min) : 0;
@@ -62,7 +60,7 @@
     return Math.random() * (max - min) + min;
   }
   function toDecimalPlace(n, p) {
-    return isNum(n) ? parseFloat( n.toFixed(p) ) : undefined;
+    return parseFloat( n.toFixed(p) );
   }
   // misc
   function isNull(v) {

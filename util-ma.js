@@ -7,8 +7,8 @@ if (typeof Object.create !== 'function') {
 }
 if (typeof Object.keys !== 'function') {
   Object.keys = function (o) {
-    var keys = [],
-      k;
+    var keys = [];
+    var k;
     for (k in o) {
       if ( o.hasOwnProperty(k) ) {
         keys.push(k);
@@ -45,7 +45,7 @@ if (typeof Array.prototype.forEach !== 'function') {
   } else {
     window.u = exported;
   }
-}((function () {
+})((function () {
   'use strict';
   // arrays
   function isArr(v) {
@@ -264,8 +264,8 @@ if (typeof Array.prototype.forEach !== 'function') {
   }
   function getEls(root, obj) {
     if ( noJq() || (!root && !obj) ) return;
-    var o = {},
-      el, els;
+    var o = {};
+    var el, els;
     if ( isStr(root) ) {
       if ( !isValidSelector(root) ) { throw new TypeError('getEls(): Invalid jQuery selector.'); }
       o.root = $(root);
@@ -281,8 +281,8 @@ if (typeof Array.prototype.forEach !== 'function') {
       o[ j.data('el') ] = j;
     });
     els.each(function (i, domEl) {
-      var j = $(domEl),
-        keys = j.data('els').split(' ');
+      var j = $(domEl);
+      var keys = j.data('els').split(' ');
       keys.forEach(function (k) {
         var p;
         if ( !o[k] ) o[k] = $();
@@ -300,9 +300,9 @@ if (typeof Array.prototype.forEach !== 'function') {
   }
   // Handlebars:
   function getTemps(space, src) {
-    var o = src || Handlebars.templates,
-      f = substrAfterLast,
-      res = {};
+    var o = src || Handlebars.templates;
+    var f = substrAfterLast;
+    var res = {};
     Object.keys(o).forEach(function (k) {
       if ( k.indexOf(space) !== -1 ) {
         res[ f('/', k) ] = o[k];
@@ -349,5 +349,5 @@ if (typeof Array.prototype.forEach !== 'function') {
     // Handlebars:
     getTemps: getTemps
   };
-}())));
+})());
 

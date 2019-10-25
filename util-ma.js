@@ -73,7 +73,6 @@
   function substrAfterFirst(c, s) {
     return s.substring(s.indexOf(c) + 1);
   }
-	
 	function extend() {
     var args = getArgs(arguments),
       len = args.length,
@@ -124,23 +123,22 @@
 	
   return {
     isObj,
-    moveArrItem,
+    isNull,
     isInt,
+    isNumOdd,
+    isEmptyObj,
+    moveArrItem,
     negateNum,
     positNum,
     reverseNumSign,
-    isNumOdd,
-    randInt,
-    randFloat,
-    toDecimalPlace,
-    isEmptyObj,
-    isNull,
-    isEmptyStr,
-    substrBeforeLast,
-    substrAfterLast,
-    substrBeforeFirst,
-    substrAfterFirst,
-    extend
+		randInt,
+		randFloat,
+		toDecimalPlace,
+		substrBeforeLast,
+		substrAfterLast,
+		substrBeforeFirst,
+		substrAfterFirst,
+		extend
   };
 })());
 

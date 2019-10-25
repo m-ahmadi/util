@@ -1,21 +1,20 @@
-These are some utility functions that I always use.
+Some utility functions
+## Install
 
-## Installation
-
-##### Browser - Global variable
+##### browser - global variable
 ```html
 <script src="util-ma.js"></script>
 ```
 The global variable `u` is used, you can change it from [here](https://github.com/m-ahmadi/util/blob/master/util-ma.js#L46).
 
-##### Browser - requirejs
+##### browser - requirejs
 ```javascript
 define(['util-ma'], function (util) {
-    util.isArr({}) // false
+    util.isObj([]) // false
 });
 ```
 
-##### Node
+##### node
 ```javascript
 const util = require('util-ma');
 ```
@@ -23,39 +22,23 @@ const util = require('util-ma');
 ## Doc
 Function | Description
 -------|------------
-**Objects**   |_________________________________________________________________________________________________
-`isObj(v)`                             | *Is value an Object?*
-`isEmptyObj(v)`                        | *Is value an empty Object?*
-`objLength(o)`                         | *Length of an Object.*
-`extend( obj1, obj2 [, obj3, ...] )`   | *Make the right-most object argument inherit from the previous left object arguments. (`obj2` inherits from `obj1`, `obj3` inherits from `obj2`.)*
-**Arrays**    |_________________________________________________________________________________________________
-`isArr(v)`                             | *Is value an Array?*
-`moveArrItem(arr, from, to)`           | *Move array item from to.*
-**Functions** |_________________________________________________________________________________________________
-`isFn(v)`                              | *Is value a Function?*
-`getArgs(arguments)`                   | *Call it inside a function and pass it the `arguments` and it returns a normal array from `arguments`.*
-**Strings**   |_________________________________________________________________________________________________
-`isStr(v)`                             | *Is value a String?*
-`isEmptyStr(v)`                        | *Is value an empty String?*
-`substrBeforeLast(char, str)`          | *Get the substring before the last occurrence of `char` in `str`.*
-`substrAfterLast(char, str)`           | *Get the substring after the last occurrence of `char` in `str`.*
-`substrBeforeFirst(char, str)`         | *Get the substring before the first occurrence of `char` in `str`.*
-`substrAfterFirst(char, str)`          | *Get the substring after the last occurrence of `char` in `str`.*
-**Numbers**   |_________________________________________________________________________________________________
-`isNum(v)`                             | *Is value a Number?*
-`isNAN(v)`                             | *Is value `NaN`?*
+`isObj(v)`                             | *Is value an object?*
+`isNull(v)`                            | *Is value `null`?*
 `isInt(number)`                        | *Is a number an integer one?*
 `isNumOdd(n)`                          | *Is a number odd?*
+`isEmptyObj(v)`                        | *Is value an empty object?*
+`moveArrItem(arr, from, to)`           | *Move array item from to.*
 `negateNum(n)`                         | *Make a positive number negative.*
 `positNum(n)`                          | *Make a negative number positive.*
 `reverseNumSign(n)`                    | *Reverse a number's sign.*
 `randInt(min, max)`                    | *Generate a random integer, between min and max arguments. (default between 0 and 10)*
 `randFloat(min, max)`                  | *Generate a random floating-point, between min and max arguments. (default between 0 and 10)*
 `toDecimalPlace(n)`                    | *Filter a floating-point decimal places to a specific amount.*
-**Misc**      |_________________________________________________________________________________________________
-`isBool(v)`                            | *Is value a Boolean?*
-`isUndef(v)`                           | *Is value `undefined`?*
-`isNull(v)`                            | *Is value `null`?*
+`substrBeforeLast(char, str)`          | *Get the substring before the last occurrence of `char` in `str`.*
+`substrAfterLast(char, str)`           | *Get the substring after the last occurrence of `char` in `str`.*
+`substrBeforeFirst(char, str)`         | *Get the substring before the first occurrence of `char` in `str`.*
+`substrAfterFirst(char, str)`          | *Get the substring after the last occurrence of `char` in `str`.*
+`extend( obj1, obj2 [, obj3, ...] )`   | *Make the right-most object argument inherit from the previous left object arguments. (`obj2` inherits from `obj1`, `obj3` inherits from `obj2`.)*
 
 ## util.extend() example:
 ```javascript

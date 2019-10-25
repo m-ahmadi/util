@@ -1,4 +1,4 @@
-Some utility functions
+Some utility functions.
 ## Install
 
 ##### browser - global variable

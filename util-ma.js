@@ -17,14 +17,14 @@
       Object.prototype.toString.call(v) === '[object Object]'
     ) ? true : false;
   }
-	function isNull(v) {
+  function isNull(v) {
     return typeof v === 'object' && v === null;
   }
-	function isInt(n) {
+  function isInt(n) {
     return n % 1 === 0;
   }
   function isNumOdd(n) {
-		return n % 2;
+    return n % 2;
   }
   function isEmptyObj(o) {
     if ( isObj(o) ) {
@@ -32,7 +32,7 @@
     }
     return false;
   }
-	function moveArrItem(a, f, t) { // array, from, to
+  function moveArrItem(a, f, t) { // array, from, to
     a.splice( t, 0, a.splice(f, 1)[0] );
   }
   function negateNum(n) {
@@ -43,10 +43,10 @@
   }
   function reverseNumSign(n) {
     if (n > 0) {
-			return negateNum(n);
-		} else if (n < 0) {
-			return positNum(n);
-		}
+      return negateNum(n);
+    } else if (n < 0) {
+      return positNum(n);
+    }
   }
   function randInt(min, max) { // default between 0 and 10
     min = min ? Math.ceil(min) : 0;
@@ -73,7 +73,7 @@
   function substrAfterFirst(c, s) {
     return s.substring(s.indexOf(c) + 1);
   }
-	function extend() {
+  function extend() {
     var args = getArgs(arguments),
       len = args.length,
       arr = [],
@@ -120,7 +120,7 @@
     }
     return result;
   }
-	
+  
   return {
     isObj,
     isNull,
@@ -131,14 +131,15 @@
     negateNum,
     positNum,
     reverseNumSign,
-		randInt,
-		randFloat,
-		toDecimalPlace,
-		substrBeforeLast,
-		substrAfterLast,
-		substrBeforeFirst,
-		substrAfterFirst,
-		extend
+    randInt,
+    randFloat,
+    toDecimalPlace,
+    substrBeforeLast,
+    substrAfterLast,
+    substrBeforeFirst,
+    substrAfterFirst,
+    extend
   };
 })());
+
 

@@ -13,14 +13,7 @@
   function moveArrItem(a, f, t) { // array, from, to
     a.splice( t, 0, a.splice(f, 1)[0] );
   }
-  // functions
-  function isFn(v) {
-    return typeof v === 'function';
-  }
   // strings
-  function isStr(v) {
-    return typeof v === 'string';
-  }
   function isEmptyStr(v) {
     return typeof v === 'string'  &&  v.length === 0;
   }
@@ -37,9 +30,6 @@
     return isStr(c) && isStr(s) ? s.substring(s.indexOf(c) + 1) : undefined;
   }
   // numbers
-  function isNum(v) {
-    return typeof v === 'number' && !isNAN(v);
-  }
   function isInt(n) {
     return isNum(n)  &&  n % 1 === 0;
   }
@@ -75,12 +65,6 @@
     return isNum(n) ? parseFloat( n.toFixed(p) ) : undefined;
   }
   // misc
-  function isBool(v) {
-    return typeof v === 'boolean';
-  }
-  function isUndef(v) {
-    return typeof v === 'undefined';
-  }
   function isNull(v) {
     return typeof v === 'object' && v === null;
   }
@@ -98,11 +82,6 @@
       return Object.getOwnPropertyNames(o).length === 0;
     }
     return false;
-  }
-	function objLength(o) {
-    if ( isObj(o) ) {
-      return Object.keys(o).length;
-    }
   }
   function extend() {
     var args = getArgs(arguments),

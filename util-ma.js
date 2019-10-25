@@ -10,37 +10,12 @@
 })((function () {
   'use strict';
   // arrays
-  function isArr(v) {
-    if (typeof Array.isArray === 'function') {
-      return Array.isArray(v);
-    } else {
-      return (
-        v &&
-        typeof v === 'object' &&
-        typeof v.length === 'number' &&
-        typeof v.splice === 'function' &&
-        !v.propertyIsEnumerable('length') &&
-        Object.prototype.toString.call(v) === '[object Array]'
-      ) ? true : false;
-    }
-  }
   function moveArrItem(a, f, t) { // array, from, to
     a.splice( t, 0, a.splice(f, 1)[0] );
   }
   // functions
   function isFn(v) {
     return typeof v === 'function';
-  }
-  function getArgs(a) {
-    var len, args, i;
-    if (a) {
-      len = a.length;
-      args = new Array(len);
-      for (i=0; i<len; i+=1) {
-        args[i] = a[i];
-      }
-      return args;
-    }
   }
   // strings
   function isStr(v) {
@@ -64,22 +39,6 @@
   // numbers
   function isNum(v) {
     return typeof v === 'number' && !isNAN(v);
-  }
-  function isNAN(v) {
-    if (typeof Number.isNaN === 'function') {
-      return Number.isNaN(v);
-    } else if (typeof isNaN === 'function') {
-      return (
-        !isObj(v) &&
-        !isArr(v) &&
-        !isStr(v) &&
-        !isBool(v) &&
-        !isUndef(v) &&
-        !v === null &&
-        typeof v === 'number' &&
-        isNaN(v)
-      ) ? true : false;
-    }
   }
   function isInt(n) {
     return isNum(n)  &&  n % 1 === 0;
@@ -135,22 +94,12 @@
     ) ? true : false;
   }
   function isEmptyObj(o) {
-    var k;
     if ( isObj(o) ) {
-      if ( typeof Object.getOwnPropertyNames === 'function' ) {
-        return Object.getOwnPropertyNames(o).length === 0; // ES5
-      } else {
-        for ( k in o ) {
-          if (  o.hasOwnProperty( k )  ) {
-            return false;
-          }
-        }
-        return true;
-      }
+      return Object.getOwnPropertyNames(o).length === 0;
     }
     return false;
   }
-  function objLength(o) {
+	function objLength(o) {
     if ( isObj(o) ) {
       return Object.keys(o).length;
     }

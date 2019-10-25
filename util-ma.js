@@ -32,9 +32,6 @@
     }
     return false;
   }
-  function isEmptyStr(v) {
-    return typeof v === 'string'  &&  v.length === 0;
-  }
 	function moveArrItem(a, f, t) { // array, from, to
     a.splice( t, 0, a.splice(f, 1)[0] );
   }

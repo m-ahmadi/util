@@ -5,7 +5,7 @@ Some utility functions.
 ```html
 <script src="util-ma.js"></script>
 ```
-The global variable `u` is used, you can change it from [here](https://github.com/m-ahmadi/util/blob/master/util-ma.js#L46).
+The global variable `u` is used, you can change it from [here](https://github.com/m-ahmadi/util/blob/master/util-ma.js#L8).
 
 ##### browser - requirejs
 ```javascript

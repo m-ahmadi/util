@@ -23,8 +23,8 @@
   function isInt(n) {
     return n % 1 === 0;
   }
-  function isNumOdd(n) {
-    return n % 2;
+  function isOdd(n) {
+    return n % 2 !== 0;
   }
   function isEmptyObj(o) {
     if ( isObj(o) ) {
@@ -141,5 +141,4 @@
     extend
   };
 })());
-
 

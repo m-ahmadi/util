@@ -24,8 +24,8 @@ Function | Description
 -------|------------
 `isObj(v)`                             | *Is value an object?*
 `isNull(v)`                            | *Is value `null`?*
-`isInt(number)`                        | *Is a number an integer one?*
-`isNumOdd(n)`                          | *Is a number odd?*
+`isInt(n)`                             | *Is number an integer?*
+`isOdd(n)`                             | *Is number odd?*
 `isEmptyObj(v)`                        | *Is value an empty object?*
 `moveArrItem(arr, from, to)`           | *Move array item from to.*
 `negateNum(n)`                         | *Make a positive number negative.*
